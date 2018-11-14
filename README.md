@@ -12,7 +12,7 @@ pipeline 可以预先装载处理模块功能的中间件（比如返回Promise 
           return canDoNext(data) ? next(data) : resolve(data)
         }
     }
-```js
+```
 
 处理模块第一级接收三个参数：
 canDoNext: Function 是否继续执行的判断函数
@@ -26,9 +26,10 @@ next: Function
 data: any
 
 * 生成一个管道
+
 ```js
     const pipeline = pipe(promiseMid, ...otherMids);
-```js
+```
 
 pipeline 默认会预置一个终止函数（canDoNext），判断条件是当函数返回的参数不是一个对象则终止,可以配置自定义的终止函数
 ```js
@@ -41,7 +42,7 @@ const pipeline = pipe({
         return true;
     }
 }, promiseMid, ...otherMids);
-```js
+```
 
 * 装载处理函数
 ```js
@@ -62,7 +63,7 @@ const pipeline = pipe({
         },
         otherProcessFunc
     );
-```js
+```
 
 * 启动管道流
 ```js
@@ -71,4 +72,4 @@ const pipeline = pipe({
             console.log('The line finished!');
         });
 }
-```js
+```
